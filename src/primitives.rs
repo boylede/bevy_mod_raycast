@@ -195,7 +195,7 @@ pub mod rays {
             camera_transform: &GlobalTransform,
         ) -> Option<Self> {
             let view = camera_transform.compute_matrix();
-            let screen_size = camera.logical_target_size()?;
+            let screen_size = camera.logical_viewport_size()?;
             let projection = camera.projection_matrix();
             let far_ndc = projection.project_point3(Vec3::NEG_Z).z;
             let near_ndc = projection.project_point3(Vec3::Z).z;
